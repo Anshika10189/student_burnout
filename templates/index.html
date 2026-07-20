@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Burnout Prediction</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <button class="theme-btn" id="theme-btn" onclick="toggleTheme()">
+        🌙 Dark Mode
+    </button>
+
+    <h1>🎓 Student Burnout Prediction</h1>
+
+    <p style="text-align:center;font-size:18px;margin-bottom:30px;">
+        AI-powered dashboard to predict burnout risk and provide personalized recommendations.
+    </p>
+
+    <div class="cards">
+
+        <div class="card">
+            <i class="fa-solid fa-brain fa-3x"></i>
+            <h3>Machine Learning</h3>
+            <p>Predict burnout using an ML model.</p>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-chart-column fa-3x"></i>
+            <h3>Analytics</h3>
+            <p>Interactive charts and performance insights.</p>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-heart-pulse fa-3x"></i>
+            <h3>Wellness</h3>
+            <p>Personalized recommendations for students.</p>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-shield-heart fa-3x"></i>
+            <h3>Early Detection</h3>
+            <p>Identify burnout before it becomes severe.</p>
+        </div>
+
+    </div>
+
+    <form action="/predict" method="POST">
+
+        <input
+            type="number"
+            name="study_hours"
+            placeholder="📚 Study Hours"
+            required>
+
+        <input
+            type="number"
+            name="sleep_hours"
+            placeholder="😴 Sleep Hours"
+            required>
+
+        <input
+            type="number"
+            name="stress_level"
+            placeholder="🔥 Stress Level (1-10)"
+            min="1"
+            max="10"
+            required>
+
+        <input
+            type="number"
+            name="attendance"
+            placeholder="📅 Attendance (%)"
+            min="0"
+            max="100"
+            required>
+
+        <input
+            type="number"
+            name="assignments"
+            placeholder="📝 Assignments Completed (%)"
+            min="0"
+            max="100"
+            required>
+
+        <button type="submit">
+            <i class="fa-solid fa-magnifying-glass-chart"></i>
+            Predict Burnout
+        </button>
+
+    </form>
+
+    <div class="footer">
+
+        <hr style="margin:30px 0;">
+
+        <p>
+            Built using Flask • Python • Scikit-learn • Matplotlib • HTML • CSS
+        </p>
+
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='theme.js') }}"></script>
+
+</body>
+</html>

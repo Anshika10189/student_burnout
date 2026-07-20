@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Student Burnout Dashboard</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1><i class="fa-solid fa-graduation-cap"></i> Student Burnout Dashboard</h1>
+
+<div class="dashboard">
+
+<!-- Prediction -->
+<div class="card">
+<i class="fa-solid fa-bullseye fa-2x"></i>
+
+<h3>Prediction</h3>
+
+<h2>{{ prediction }}</h2>
+
+</div>
+
+<!-- Confidence -->
+
+<div class="card">
+
+<i class="fa-solid fa-star fa-2x"></i>
+
+<h3>Confidence</h3>
+
+<h2>{{ confidence }}%</h2>
+
+</div>
+
+<!-- Stress Indicator -->
+
+<div class="card">
+
+<i class="fa-solid fa-fire fa-2x"></i>
+
+<h3>Stress Indicator</h3>
+
+<div class="progress">
+
+<div class="progress">
+    <div class="progress-bar"></div>
+</div>
+
+<p>{{ confidence }}%</p>
+
+<p>{{ confidence }}%</p>
+
+</div>
+
+<!-- Status -->
+
+<div class="card">
+
+<i class="fa-solid fa-heart-pulse fa-2x"></i>
+
+<h3>Status</h3>
+
+{% if prediction=="Low" %}
+
+<h2 class="low">🟢 Healthy</h2>
+
+{% elif prediction=="Medium" %}
+
+<h2 class="medium">🟡 Moderate</h2>
+
+{% else %}
+
+<h2 class="high">🔴 High Risk</h2>
+
+{% endif %}
+
+</div>
